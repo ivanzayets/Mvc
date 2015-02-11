@@ -307,6 +307,7 @@ Parameter name: value",
                 Mock.Of<IView>(),
                 new ViewDataDictionary(
                     new EmptyModelMetadataProvider()),
+                Mock.Of<ITempDataDictionary>(),
                 TextWriter.Null);
         }
 

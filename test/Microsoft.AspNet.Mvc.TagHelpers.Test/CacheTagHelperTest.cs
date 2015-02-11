@@ -753,6 +753,7 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
             return new ViewContext(actionContext,
                                    Mock.Of<IView>(),
                                    new ViewDataDictionary(new EmptyModelMetadataProvider()),
+                                   Mock.Of<ITempDataDictionary>(),
                                    TextWriter.Null);
         }
 

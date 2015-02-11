@@ -990,6 +990,7 @@ section-content-2";
                 actionContext,
                 view,
                 new ViewDataDictionary(new EmptyModelMetadataProvider()),
+                Mock.Of<ITempDataDictionary>(),
                 new StringWriter());
         }
 

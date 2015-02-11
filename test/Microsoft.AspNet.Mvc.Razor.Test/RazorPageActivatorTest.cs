@@ -39,6 +39,7 @@ namespace Microsoft.AspNet.Mvc.Razor
             var viewContext = new ViewContext(actionContext,
                                               Mock.Of<IView>(),
                                               new ViewDataDictionary(new EmptyModelMetadataProvider()),
+                                              Mock.Of<ITempDataDictionary>(),
                                               TextWriter.Null);
 
             // Act
@@ -69,6 +70,7 @@ namespace Microsoft.AspNet.Mvc.Razor
             var viewContext = new ViewContext(actionContext,
                                               Mock.Of<IView>(),
                                               new ViewDataDictionary(new EmptyModelMetadataProvider()),
+                                              Mock.Of<ITempDataDictionary>(),
                                               TextWriter.Null);
 
             // Act and Assert
@@ -107,6 +109,7 @@ namespace Microsoft.AspNet.Mvc.Razor
             var viewContext = new ViewContext(actionContext,
                                               Mock.Of<IView>(),
                                               viewData,
+                                              Mock.Of<ITempDataDictionary>(),
                                               TextWriter.Null);
 
             // Act
@@ -141,6 +144,7 @@ namespace Microsoft.AspNet.Mvc.Razor
             var viewContext = new ViewContext(actionContext,
                                               Mock.Of<IView>(),
                                               viewData,
+                                              Mock.Of<ITempDataDictionary>(),
                                               TextWriter.Null);
 
             // Act
@@ -172,6 +176,7 @@ namespace Microsoft.AspNet.Mvc.Razor
             var viewContext = new ViewContext(actionContext,
                                               Mock.Of<IView>(),
                                               viewData,
+                                              Mock.Of<ITempDataDictionary>(),
                                               TextWriter.Null);
 
             // Act
