@@ -14,6 +14,7 @@
     "Microsoft.AspNet.Mvc.ModelBinding": "6.0.0-*",
     "Microsoft.AspNet.Routing": "1.0.0-*",
     "Microsoft.AspNet.Security": "1.0.0-*",
+    "Microsoft.Framework.BufferEntryCollection.Internal": { "version": "1.0.0-*", "type": "build" },
     "Microsoft.Framework.CopyOnWriteDictionary.Internal": { "version": "1.0.0-*", "type": "build" },
     "Microsoft.Framework.NotNullAttribute.Internal": { "version": "1.0.0-*", "type": "build" },
     "Microsoft.Framework.PropertyActivator.Internal": { "version": "1.0.0-*", "type": "build" },

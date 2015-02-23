@@ -10,6 +10,7 @@ using Microsoft.AspNet.Http.Core;
 using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.AspNet.Mvc.TagHelpers.Internal;
+using Microsoft.AspNet.Razor.Runtime;
 using Microsoft.AspNet.Razor.Runtime.TagHelpers;
 using Microsoft.AspNet.Routing;
 using Microsoft.Framework.Logging;
@@ -56,7 +57,7 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
 
             // Assert
             Assert.Null(output.TagName);
-            Assert.NotNull(output.Content);
+            Assert.NotEmpty(output.Content.ToString());
             Assert.True(output.ContentSet);
             Assert.Empty(logger.Logged);
         }
@@ -253,7 +254,8 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
             await helper.ProcessAsync(tagHelperContext, output);
 
             // Assert
-            Assert.StartsWith("<script data-extra=\"something\" src=\"/blank.js\" data-more=\"else\"", output.Content);
+            Assert.StartsWith(
+                "<script data-extra=\"something\" src=\"/blank.js\" data-more=\"else\"", output.Content.ToString());
             Assert.Empty(logger.Logged);
         }
 
@@ -267,7 +269,11 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
                 attributes,
                 items: new Dictionary<object, object>(),
                 uniqueId: Guid.NewGuid().ToString("N"),
-                getChildContentAsync: () => Task.FromResult(content));
+                getChildContentAsync: () => {
+                    var tagHelperContent = new DefaultTagHelperContent();
+                    tagHelperContent.Append(content);
+                    return Task.FromResult((TagHelperContent)tagHelperContent);
+                });
         }
 
         private static ViewContext MakeViewContext()

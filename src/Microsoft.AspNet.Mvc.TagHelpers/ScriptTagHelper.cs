@@ -117,7 +117,7 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
 
             content.Append("><\\/script>\"));</script>");
 
-            output.Content = content.ToString();
+            output.Content.Append(content.ToString());
         }
 
         private void AppendSrc(StringBuilder content, string srcKey)
